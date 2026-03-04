@@ -178,6 +178,6 @@ This project demonstrates the practical application of machine learning in cyber
 
 ## Author
 
-Karthikeya
+Dama Karthikeya
 Final Year Engineering Project
 Department of Computer Science / Cybersecurity
