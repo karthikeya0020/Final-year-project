@@ -1,72 +1,185 @@
-# Transformer-Based WAF Pipeline
+# AI-Based Web Application Firewall (WAF)
 
-A **Transformer neural network**-powered Web Application Firewall (WAF) prototype that detects three types of cyber attacks in real-time:
+## Abstract
 
-- 🛡️ **SQL Injection** — Detects malicious SQL payloads in HTTP parameters
-- ⚡ **DDoS Attack** — Identifies high-rate request flooding patterns
-- 👁️ **Man-in-the-Middle (MITM)** — Detects protocol downgrade and header anomalies
+This project presents an AI-based Web Application Firewall (WAF) designed to detect and prevent malicious web attacks using machine learning techniques. Unlike traditional rule-based WAF systems, this implementation leverages a Transformer-based deep learning model to classify incoming web requests as benign or malicious. The system improves adaptability and detection accuracy against modern and evolving cyber threats such as SQL Injection (SQLi) and Cross-Site Scripting (XSS).
 
-## Architecture
+---
 
-```
-HTTP Request → Feature Extractor (16-dim) → Transformer Encoder → Classification → Dashboard
-```
+## Introduction
 
-**Model**: 2-layer Transformer Encoder with 4 attention heads, CLS token, and a 4-class softmax output.
+Web applications are increasingly targeted by sophisticated cyber-attacks. Traditional Web Application Firewalls rely primarily on predefined rules and signatures, which can fail to detect zero-day or obfuscated attacks.
 
-## Quick Start
+This project proposes a machine learning-driven WAF that:
 
-### 1. Install Dependencies
-```bash
-cd backend
-pip install -r requirements.txt
-```
+* Extracts relevant features from incoming HTTP requests
+* Uses a trained deep learning model for classification
+* Identifies malicious traffic patterns
+* Generates security reports
+* Simulates traffic for testing and validation
 
-### 2. Train the Model
-```bash
-python train.py
-```
-This generates synthetic training data and trains the Transformer model (~50 epochs). The trained weights are saved to `waf_model.pth`.
+The system demonstrates how artificial intelligence can enhance modern cybersecurity solutions.
 
-### 3. Run the Server
-```bash
-python app.py
-```
+---
 
-### 4. Open the Dashboard
-Open **http://localhost:5000** in your browser.
+## Objectives
 
-- Click **"Start Simulation"** to begin live traffic analysis
-- Use the **Attack Tester** panel to test specific attack payloads
-- Watch the **Live Traffic Monitor** and **Detection Logs** update in real-time
+* To design a Web Application Firewall using machine learning.
+* To implement a Transformer-based model for attack classification.
+* To detect common web-based attacks such as SQL Injection and XSS.
+* To generate automated reports for security analysis.
+* To provide a simple frontend interface for interaction.
 
-## Tech Stack
+---
 
-| Component | Technology |
-|-----------|-----------|
-| ML Model | PyTorch Transformer Encoder |
-| Backend | Python Flask |
-| Frontend | HTML/CSS/JS + Chart.js |
-| Features | 16-dimensional HTTP request vector |
+## System Architecture
+
+The project consists of two main components:
+
+### Backend
+
+* Built using Python and Flask
+* Handles request processing and classification
+* Includes feature extraction and model inference
+* Generates security reports
+
+### Frontend
+
+* Developed using HTML, CSS, and JavaScript
+* Provides a user interface for testing requests
+* Displays detection results
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Python
+* Flask
+* PyTorch
+* Scikit-learn
+* NumPy
+* Pandas
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Version Control
+
+* Git
+* GitHub
+
+---
 
 ## Project Structure
 
 ```
-Waf-project/
+Final-year-project/
+│
 ├── backend/
-│   ├── app.py                  # Flask REST API
-│   ├── model.py                # Transformer classifier
-│   ├── feature_extractor.py    # HTTP → feature vector
-│   ├── train.py                # Training script
-│   ├── traffic_simulator.py    # Live traffic generator
-│   └── requirements.txt        # Python dependencies
+│   ├── app.py
+│   ├── model.py
+│   ├── train.py
+│   ├── feature_extractor.py
+│   ├── domain_scanner.py
+│   ├── traffic_simulator.py
+│   ├── generate_report.py
+│   └── requirements.txt
+│
 ├── frontend/
-│   ├── index.html              # Dashboard UI
-│   ├── style.css               # Dark-mode styles
-│   └── app.js                  # Dashboard logic
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
+├── WAF_Project_Report.pdf
 └── README.md
 ```
 
-## University Project
+---
 
-This is a prototype developed for academic purposes demonstrating the application of Transformer architectures to network security (WAF) use cases.
+## Installation and Setup
+
+### Step 1: Clone the Repository
+
+```
+git clone https://github.com/karthikeya0020/Final-year-project.git
+cd Final-year-project
+```
+
+### Step 2: Install Dependencies
+
+```
+pip install -r backend/requirements.txt
+```
+
+### Step 3: Run the Backend Server
+
+```
+cd backend
+python app.py
+```
+
+The server will run locally at:
+
+```
+http://127.0.0.1:5000/
+```
+
+### Step 4: Open the Frontend
+
+Open the file `frontend/index.html` in a web browser to access the interface.
+
+---
+
+## Model Training
+
+To retrain the model:
+
+```
+cd backend
+python train.py
+```
+
+The trained model file will be saved as:
+
+```
+waf_model.pth
+```
+
+---
+
+## Working Principle
+
+1. A user submits a web request through the interface.
+2. The backend extracts relevant features from the request.
+3. The Transformer-based model processes the features.
+4. The request is classified as benign or malicious.
+5. A report is generated for analysis.
+
+---
+
+## Future Enhancements
+
+* Deployment on cloud infrastructure
+* Real-time monitoring of live traffic
+* Integration with production web servers
+* Expansion of training dataset
+* Containerization using Docker
+
+---
+
+## Conclusion
+
+This project demonstrates the practical application of machine learning in cybersecurity. By integrating a Transformer-based classification model with a Web Application Firewall framework, the system provides improved detection capabilities compared to traditional rule-based approaches. The project highlights the potential of artificial intelligence in strengthening web application security.
+
+---
+
+## Author
+
+Karthikeya
+Final Year Engineering Project
+Department of Computer Science / Cybersecurity
