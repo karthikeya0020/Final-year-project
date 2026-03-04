@@ -56,9 +56,7 @@ The project consists of two main components:
 ### Backend
 
 * Python
-* Flask
 * PyTorch
-* Scikit-learn
 * NumPy
 * Pandas
 
